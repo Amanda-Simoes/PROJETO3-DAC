@@ -1,5 +1,5 @@
-br/edu/ifpb/Model/Integrante.class
-br/edu/ifpb/projeto3/JAXRSConfiguration.class
-br/edu/ifpb/projeto3/resources/JavaEE8Resource.class
-br/edu/ifpb/infra/persistencia/IntegrantePersistencia.class
-br/edu/ifpb/Controller/IntegranteController.class
+br\edu\ifpb\infra\persistencia\IntegrantePersistencia.class
+br\edu\ifpb\Model\Integrante.class
+br\edu\ifpb\projeto3\JAXRSConfiguration.class
+br\edu\ifpb\Controller\IntegranteController.class
+br\edu\ifpb\projeto3\resources\JavaEE8Resource.class

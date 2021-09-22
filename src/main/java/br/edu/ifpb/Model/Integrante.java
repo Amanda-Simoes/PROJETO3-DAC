@@ -6,7 +6,7 @@
 package br.edu.ifpb.Model;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -27,14 +27,14 @@ public class Integrante implements Serializable{
     private String  cpf;
     
     @Temporal(value = TemporalType.DATE)
-    private LocalDate dataDeNascimento;
+    private Date dataDeNascimento;
     
     /**
      * Construtor vazio
      */
     public Integrante(){}
     
-    public Integrante(int id, String nome, LocalDate dataDeNascimento, String cpf){
+    public Integrante(int id, String nome, Date dataDeNascimento, String cpf){
         this.id = id;
         this.nome = nome;
         this.dataDeNascimento = dataDeNascimento;
@@ -61,11 +61,11 @@ public class Integrante implements Serializable{
         this.nome = nome;
     }
 
-    public LocalDate getDataDeNascimento() {
+    public Date getDataDeNascimento() {
         return dataDeNascimento;
     }
 
-    public void setDataDeNascimento(LocalDate dataDeNascimento) {
+    public void setDataDeNascimento(Date dataDeNascimento) {
         this.dataDeNascimento = dataDeNascimento;
     }
 

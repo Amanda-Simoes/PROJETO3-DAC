@@ -8,7 +8,7 @@
  * Created: 22 de set de 2021
  */
 
-CREATE TABLE integrante(
+CREATE TABLE integrante (
     id serial PRIMARY KEY,
     nome VARCHAR(50),
     dataDeNascimento DATE,

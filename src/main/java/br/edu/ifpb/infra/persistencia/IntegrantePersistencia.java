@@ -50,12 +50,12 @@ public class IntegrantePersistencia {
      * @return 
      */
     public List<Integrante>  listIntegrantes() {
-        return entityManager.createQuery("FROM integrante i", Integrante.class).getResultList();
+        return entityManager.createQuery("FROM Integrante i", Integrante.class).getResultList();
     }
     
     public Integrante searchCPF(String cpf) {
         
-        List<Integrante> allIntegrantes = entityManager.createQuery("FROM integrante a", Integrante.class).getResultList();
+        List<Integrante> allIntegrantes = entityManager.createQuery("FROM Integrante a", Integrante.class).getResultList();
         
         for ( Integrante integrante : allIntegrantes ) {  
             if ( integrante.getCpf().equals(cpf) ) {
