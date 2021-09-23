@@ -6,7 +6,7 @@
 package br.edu.ifpb.Controller;
 
 import br.edu.ifpb.Model.Integrante;
-import br.edu.ifpb.infra.persistencia.IntegrantePersistencia;
+import br.edu.ifpb.persistencia.IntegrantePersistencia;
 import java.io.Serializable;
 import java.util.List;
 import javax.enterprise.context.SessionScoped;
@@ -24,6 +24,26 @@ public class IntegranteController implements Serializable {
     @Inject
     private IntegrantePersistencia persistencia;
     private Integrante integrante = new Integrante();
+
+    /**
+     * Getter e Setter
+     * @return 
+     */
+    public IntegrantePersistencia getPersistencia() {
+        return persistencia;
+    }
+
+    public void setPersistencia(IntegrantePersistencia persistencia) {
+        this.persistencia = persistencia;
+    }
+
+    public Integrante getIntegrante() {
+        return integrante;
+    }
+
+    public void setIntegrante(Integrante integrante) {
+        this.integrante = integrante;
+    }
     
     /**
      * Adicionar um novo integrante

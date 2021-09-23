@@ -5,8 +5,13 @@
  */
 package br.edu.ifpb.Model;
 
+import br.edu.ifpb.converter.ConversorData;
+import br.edu.ifpb.converter.ConversorDataNascimento;
+import br.edu.ifpb.convertercolumn.ConverterLocalDate;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -27,20 +32,29 @@ public class Integrante implements Serializable{
     private String  cpf;
     
     @Temporal(value = TemporalType.DATE)
-    private Date dataDeNascimento;
+    @Convert(converter = ConverterLocalDate.class)
+    private LocalDate dataDeNascimento;
     
     /**
      * Construtor vazio
      */
     public Integrante(){}
     
-    public Integrante(int id, String nome, Date dataDeNascimento, String cpf){
-        this.id = id;
+    public Integrante(String nome, LocalDate dataDeNascimento, String cpf){
         this.nome = nome;
         this.dataDeNascimento = dataDeNascimento;
         this.cpf = cpf;
     }
 
+    public Integrante(int id, String nome, String cpf, LocalDate dataDeNascimento) {
+        this.id = id;
+        this.nome = nome;
+        this.cpf = cpf;
+        this.dataDeNascimento = dataDeNascimento;
+    }
+
+    
+    
     /**
      * Getter e Setter
      * @return 
@@ -61,11 +75,11 @@ public class Integrante implements Serializable{
         this.nome = nome;
     }
 
-    public Date getDataDeNascimento() {
+    public LocalDate getDataDeNascimento() {
         return dataDeNascimento;
     }
 
-    public void setDataDeNascimento(Date dataDeNascimento) {
+    public void setDataDeNascimento(LocalDate dataDeNascimento) {
         this.dataDeNascimento = dataDeNascimento;
     }
 
