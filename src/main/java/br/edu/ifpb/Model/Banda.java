@@ -10,6 +10,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -39,6 +40,7 @@ public class Banda implements Serializable{
      * Relacionamento 1 pra N
      */
     @OneToMany
+    @JoinColumn(name = "banda_id")
     private List<Integrante> integrantes;
     
     /**

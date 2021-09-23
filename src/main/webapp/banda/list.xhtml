@@ -32,6 +32,40 @@
                     #{banda.localDeOrigem}
                 </h:column>
                 
+                
+                <h:column>
+                    <f:facet name="header" >Integrantes</f:facet>
+                    
+                    <h:dataTable 
+                        rendered="#{bandaController.banda.integrantes.size() > 0}"
+                        value="#{bandaController.banda.integrantes}"
+                        var="integrante"
+                    >
+                        
+                    <h:column>
+                        <f:facet name="header" >id</f:facet>
+                        #{integrante.id}
+                    </h:column>
+                        
+                    <h:column>
+                        <f:facet name="header" >nome</f:facet>
+                        #{integrante.nome}
+                    </h:column>
+                        
+                    <h:column>
+                        <f:facet name="header" >data de nascimento</f:facet>
+                        #{integrante.dataDeNascimento}
+                    </h:column>
+                        
+                    <h:column>
+                        <f:facet name="header" >cpf</f:facet>
+                        #{integrante.cpf}
+                    </h:column>
+                        
+                    </h:dataTable>
+                    
+                </h:column>
+                
                 <h:column>
                     <h:commandButton class="btn yellow white-text"  value="Editar" action="#{bandaController.update(banda)}" />
                 </h:column>

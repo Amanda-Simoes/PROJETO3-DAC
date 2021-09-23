@@ -44,6 +44,6 @@ public class GerentePersistencia {
      * @return 
      */
     public List<Gerente> list () {
-        return entityManager.createQuery("FROM gerente gnt", Gerente.class).getResultList();}
+        return entityManager.createQuery("FROM Gerente gnt", Gerente.class).getResultList();}
     
 }
