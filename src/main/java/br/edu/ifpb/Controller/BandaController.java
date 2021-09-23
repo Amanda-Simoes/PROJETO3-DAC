@@ -8,6 +8,7 @@ package br.edu.ifpb.Controller;
 import br.edu.ifpb.Model.Banda;
 import br.edu.ifpb.persistencia.BandaPersistencia;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
@@ -23,6 +24,15 @@ public class BandaController implements Serializable{
     @Inject
     private BandaPersistencia bandas;
     private Banda banda = new Banda();
+    private List<Banda> resultBandas = new ArrayList<>();
+
+    public List<Banda> getResultBandas() {
+        return resultBandas;
+    }
+
+    public void setResultBandas(List<Banda> resultBandas) {
+        this.resultBandas = resultBandas;
+    }
 
     public BandaPersistencia getBandas() {
         return bandas;
@@ -62,6 +72,12 @@ public class BandaController implements Serializable{
     
     public List<Banda> listar() {
         return this.bandas.Bandas();
+    }
+    
+    public String search(){        
+        this.resultBandas = this.bandas.search(this.banda.getLocalDeOrigem());
+        this.banda = new Banda();
+        return "/banda/search?faces-redirect=true";
     }
         
     

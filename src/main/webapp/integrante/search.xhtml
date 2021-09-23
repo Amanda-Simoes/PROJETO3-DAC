@@ -1,13 +1,14 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
+      template="../template.xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-    <h:head>
-        <title>Bandas</title>
-    </h:head>
-    <h:body>
-        
+    
+    
+        <ui:define name="center">
+            
         <h1 class="header center black-text">Busca de integrante: </h1>
         <br></br>
         
@@ -23,8 +24,5 @@
               
             <br /><br />              
         </h:form>
-        
-    </h:body>
-    
-</html>
-
+    </ui:define>
+</ui:composition>

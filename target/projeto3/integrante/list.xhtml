@@ -1,14 +1,21 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
+      template="../template.xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-    <h:head>
-        <title>Integrantes</title>
-    </h:head>
-    <h:body>
+    
+    
+        <ui:define name="center">
         
         <h:form>
+            
+         <h:commandLink class="btn black white-text" value="Pesquisar Integrante" action="search.xhtml?faces-redirect=true"/>
+         <br /><br />                  
+         <h:commandLink class="btn black white-text" value="Integrante por nascimento" action="list-nascimento.xhtml?faces-redirect=true"/>
+            
+         <h1 class="header center black-text">Integrantes</h1>   
             <h:dataTable value="#{integranteController.list()}" var="integrante">
                 
                 <h:column>
@@ -32,18 +39,15 @@
                 </h:column>
                 
                 <h:column>
-                    <h:commandButton  value="Editar" action="#{integranteController.update(integrante)}" />
+                    <h:commandButton class="btn yellow white-text"  value="Editar" action="#{integranteController.update(integrante)}" />
                 </h:column>
                 
                 <h:column>
-                    <h:commandButton  value="Remover" action="#{integranteController.delete(integrante)}" />
+                    <h:commandButton class="btn red white-text"  value="Remover" action="#{integranteController.delete(integrante)}" />
                 </h:column>
                 
             </h:dataTable>
             
         </h:form>
-        
-    </h:body>
-    
-</html>
-
+    </ui:define>
+</ui:composition>

@@ -61,4 +61,19 @@ public class BandaPersistencia {
                .getResultList();
    }
     
+    public List<Banda> search(String local) {
+        
+        List<Banda> resultBandas = new ArrayList<>();       
+        
+        List<Banda> bandas = entityManager.createQuery("FROM Banda bd", Banda.class).getResultList();
+        
+        for ( Banda banda : bandas ) {
+            
+            if ( banda.getLocalDeOrigem().equals(local) ) {
+                resultBandas.add(banda);
+            }            
+        }
+        return resultBandas;
+    }
+
 }
