@@ -63,7 +63,7 @@ public class IntegrantePersistencia {
         List<Integrante> integrantes = new ArrayList<>();
         
         integrantes = entityManager
-                .createQuery("FROM integrante i WHERE i.dataDeNascimento BETWEEN :dataInicial and :dataFinal", Integrante.class)
+                .createQuery("FROM Integrante i WHERE i.dataDeNascimento BETWEEN :dataInicial and :dataFinal", Integrante.class)
                 .setParameter("dataInicial", LocalDate.of(2000, 1, 1))
                 .setParameter("dataFinal", LocalDate.of(2016,4,20))
                 .getResultList();
@@ -77,7 +77,7 @@ public class IntegrantePersistencia {
      */
     public Integrante searchCpf(String cpf) {
         
-        List<Integrante> integrantes = entityManager.createQuery("FROM integrante t", Integrante.class).getResultList();
+        List<Integrante> integrantes = entityManager.createQuery("FROM Integrante t", Integrante.class).getResultList();
         
         for ( Integrante integrante : integrantes ) {
             

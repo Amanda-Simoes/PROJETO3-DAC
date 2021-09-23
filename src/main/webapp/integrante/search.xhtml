@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Bandas</title>
+    </h:head>
+    <h:body>
+        
+        <h1 class="header center black-text">Busca de integrante: </h1>
+        <br></br>
+        
+        <h:form>
+            
+            <h:outputLabel value="Informe o CPF do integrante :" for="cpfIntegrante"/>
+            <h:inputText 
+                value="#{integranteController.integrante.cpf}"
+                />
+            <h:commandButton value="Buscar" action="#{integranteController.listCpf()}" class="btn black white-text" />
+            <br /> <br />
+            <h:outputText value="#{integranteController.resultIntegrante}" class="black-text accent-1"/>
+              
+            <br /><br />              
+        </h:form>
+        
+    </h:body>
+    
+</html>
+

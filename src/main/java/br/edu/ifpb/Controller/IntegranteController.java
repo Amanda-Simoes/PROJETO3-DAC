@@ -24,6 +24,15 @@ public class IntegranteController implements Serializable {
     @Inject
     private IntegrantePersistencia persistencia;
     private Integrante integrante = new Integrante();
+    private String resultIntegrante = "";
+
+    public String getResultIntegrante() {
+        return resultIntegrante;
+    }
+
+    public void setResultIntegrante(String resultIntegrante) {
+        this.resultIntegrante = resultIntegrante;
+    }
 
     /**
      * Getter e Setter
@@ -88,6 +97,22 @@ public class IntegranteController implements Serializable {
      */
     public List<Integrante> list() {
         return this.persistencia.listIntegrantes();
+    }
+    
+    /**
+     * Listar por data de nascimento
+     * @return 
+     */
+    public String listCpf() {
+        Integrante resultInt = this.persistencia.searchCpf(this.integrante.getCpf());
+        
+        if(resultInt.getNome().equals("Integrante Não encontrado, tente novamente")){
+            this.resultIntegrante = resultInt.getNome() +  "não esta cadastrado";
+        } else{
+            this.resultIntegrante = "Integrante: " + resultInt.getNome() + " id: " + resultInt.getId() +" CPF:" + resultInt.getCpf() + " Data de Nascimento:" + resultInt.getDataDeNascimento();
+        }
+        this.integrante = new Integrante();
+        return "/integrante/search";
     }
     
     /**
