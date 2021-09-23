@@ -1,28 +1,19 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+<html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      template="../template.xhtml">
-    
-    
-    <ui:define name="center" >
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Bandas</title>
+    </h:head>
+    <h:body>
         
         <h:form>
-            
-            <h2 class="header center orange-text" >Bandas:</h2>
-            
-            <h:dataTable value="#{bandaController.listar()}" var="banda" class="striped highlight">
+            <h:dataTable value="#{bandaController.listar()}" var="banda">
                 
                 <h:column>
                     <f:facet name="header" >Id</f:facet>
                     #{banda.id}
-                </h:column>
-                
-                <h:column>
-                    <f:facet name="header" >Local de Origem</f:facet>
-                    #{banda.localDeOrigem}
                 </h:column>
                 
                 <h:column>
@@ -31,17 +22,23 @@
                 </h:column>
                 
                 <h:column>
-                    <h:commandButton  value="Editar"  action="#{bandaController.update(banda)}" class="btn blue white-text"/>
+                    <f:facet name="header" >Local de Origem</f:facet>
+                    #{banda.localDeOrigem}
                 </h:column>
                 
                 <h:column>
-                    <h:commandButton  value="Remover" action="#{bandaController.remover(banda)}" class="btn red white-text" />
+                    <h:commandButton  value="Editar" action="#{bandaController.update(banda)}" />
                 </h:column>
                 
-            </h:dataTable>  
+                <h:column>
+                    <h:commandButton  value="Remover" action="#{bandaController.remover(banda)}" />
+                </h:column>
+                
+            </h:dataTable>
+            
         </h:form>
         
-    </ui:define>
+    </h:body>
     
-    
-</ui:composition>
+</html>
+

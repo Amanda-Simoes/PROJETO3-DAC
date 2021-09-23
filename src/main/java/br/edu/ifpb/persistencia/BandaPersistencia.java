@@ -47,7 +47,7 @@ public class BandaPersistencia {
      */
     public List<Banda> Bandas() {
         return entityManager
-                .createQuery("FROM banda bd", Banda.class)
+                .createQuery("FROM Banda bd", Banda.class)
                 .getResultList();
     }
     
@@ -57,7 +57,7 @@ public class BandaPersistencia {
      */
     public List<Gerente> Gerentes () {
        return entityManager
-               .createQuery("FROM gerente grt", Gerente.class)
+               .createQuery("FROM Gerente grt", Gerente.class)
                .getResultList();
    }
     

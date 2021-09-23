@@ -57,10 +57,10 @@ public class BandaController implements Serializable{
     
     public String remover (Banda banda) {
         this.bandas.delete(banda);
-        return "/Banda/list";
+        return "/banda/edit?faces-redirect=true";
     }
     
-    public List<Banda> listar () {
+    public List<Banda> listar() {
         return this.bandas.Bandas();
     }
         
