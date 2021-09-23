@@ -6,6 +6,8 @@
 package br.edu.ifpb.persistencia;
 
 import br.edu.ifpb.Model.Integrante;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -51,6 +53,40 @@ public class IntegrantePersistencia {
      */
     public List<Integrante>  listIntegrantes() {
         return entityManager.createQuery("FROM Integrante i", Integrante.class).getResultList();
+    }
+    
+    /**
+     * Listagem por data de nascimento especifica
+     * @return 
+     */
+    public List<Integrante> Nascimento () {
+        List<Integrante> integrantes = new ArrayList<>();
+        
+        integrantes = entityManager
+                .createQuery("FROM integrante i WHERE i.dataDeNascimento BETWEEN :dataInicial and :dataFinal", Integrante.class)
+                .setParameter("dataInicial", LocalDate.of(2000, 1, 1))
+                .setParameter("dataFinal", LocalDate.of(2016,4,20))
+                .getResultList();
+        return integrantes;
+    }
+    
+    /**
+     * Busca por CPF
+     * @param cpf
+     * @return 
+     */
+    public Integrante searchCpf(String cpf) {
+        
+        List<Integrante> integrantes = entityManager.createQuery("FROM integrante t", Integrante.class).getResultList();
+        
+        for ( Integrante integrante : integrantes ) {
+            
+            if ( integrante.getCpf().equals(cpf) ) {
+                return integrante;
+            }
+            
+        }
+        return null;
     }
     
 }

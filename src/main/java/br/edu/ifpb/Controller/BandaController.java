@@ -9,12 +9,16 @@ import br.edu.ifpb.Model.Banda;
 import br.edu.ifpb.persistencia.BandaPersistencia;
 import java.io.Serializable;
 import java.util.List;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 /**
  *
  * @author mandy
  */
+@SessionScoped
+@Named
 public class BandaController implements Serializable{
     @Inject
     private BandaPersistencia bandas;
@@ -59,7 +63,6 @@ public class BandaController implements Serializable{
     public List<Banda> listar () {
         return this.bandas.Bandas();
     }
-        
         
     
 }

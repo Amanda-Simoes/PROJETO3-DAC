@@ -7,6 +7,7 @@ package br.edu.ifpb.persistencia;
 
 import br.edu.ifpb.Model.Banda;
 import br.edu.ifpb.Model.Gerente;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;

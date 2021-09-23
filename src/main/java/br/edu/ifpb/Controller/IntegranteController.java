@@ -90,4 +90,12 @@ public class IntegranteController implements Serializable {
         return this.persistencia.listIntegrantes();
     }
     
+    /**
+     * Listar por data de nascimento
+     * @return 
+     */
+    public List<Integrante> listNascimento() {
+        return this.persistencia.Nascimento();
+    }
+    
 }
